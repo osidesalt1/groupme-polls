@@ -1,0 +1,25 @@
+name: Daily Poll
+on:
+  schedule:
+    - cron: '0 15 * * 1-5'  # Mon-Fri at 3 PM PT (uses tzc action)
+      timezone: 'America/Los_Angeles'
+
+jobs:
+  create-poll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests pytz
+
+      - name: Run Script
+        env:
+          GROUPME_API_TOKEN: ${{ secrets.GROUPME_API_TOKEN }}
+          GROUPME_GROUP_ID: ${{ secrets.GROUPME_GROUP_ID }}
+        run: python daily_frisbee_poll.py
