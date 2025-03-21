@@ -1,7 +1,7 @@
 name: Daily Poll
 on:
   schedule:
-    - cron: '*/2 * * * *'  # Mon-Fri at 3 PM PT (uses tzc action)
+    - cron: '0 15 * * 1-5'  # Mon-Fri at 3 PM PT (uses tzc action)
       timezone: 'America/Los_Angeles'
 
 jobs:
