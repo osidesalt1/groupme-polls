@@ -1,8 +1,7 @@
 name: Daily Poll
 on:
   schedule:
-    - cron: '0 15 * * 1-5'  # Mon-Fri at 3 PM PT (uses tzc action)
-      timezone: 'America/Los_Angeles'
+    - cron: '*/2 * * * *'  # Every 2 minutes (for testing)
 
 jobs:
   create-poll:
