@@ -2,6 +2,7 @@ name: Daily Poll
 on:
   schedule:
     - cron: '*/2 * * * *'  # Every 2 minutes (for testing)
+    timezone: 'America/Los_Angeles'
 
 jobs:
   create-poll:
